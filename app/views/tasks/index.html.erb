@@ -1,0 +1,13 @@
+<div class= "container">
+  <h1>My Task Manager </h1>
+  <h2>Tasks:</h2>
+    <% @tasks.each do |task| %>
+      <div class= "list"><%= link_to task.title, task_path(task) %>
+      <%= link_to "<i class='fa-solid fa-trash-can'></i>".html_safe,
+              task_path(task),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+  <%= link_to "Create new task", tasks_new_path, class: "btn btn-secondary"%>
+</div>
